@@ -25,3 +25,11 @@ O processo de desenvolvimento da Infraestrutura é executado em 4 momentos.
 Toda a parte da segurança dos servidores encontra-se no arquivo security.tf, foi feito de forma simples e objetivo para fácil entendimento e modificacão.
 
 Não foi adicionado meu IP externo ao security.tf.
+
+## Deployment
+
+O deployment da aplicacão encontra-se no diretorio deployment.
+
+Foi escolhido o banco de dados MySQL e o PHPMyAdmin para seu acesso.
+
+A aplicacão pode ser executada a partir da porta 30000 do NodePort.
