@@ -1,0 +1,11 @@
+---
+- name: Change hostname
+  hosts: workers
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  
+  tasks:   
+    - name: "Update Hostname"
+      hostname:
+        name: "{{ inventory_hostname }}"    

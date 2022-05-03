@@ -1,0 +1,9 @@
+keys/*
+credentials
+**/.terraform/*
+terraform/.terraform.lock.hcl
+
+*.tfstate
+*.tfstate.*
+ansible/inventory
+enviroment.env

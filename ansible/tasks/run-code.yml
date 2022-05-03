@@ -1,0 +1,28 @@
+---
+#site.yml:
+- name: Run code and get data.json
+  hosts: master
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo  
+  tasks:   
+    - name: "copy code"
+      copy:
+        src: ../src/join_cluster.py
+        dest: /home/ubuntu/join_cluster.py
+        owner: ubuntu
+        group: ubuntu
+        mode: 0755
+
+    - name: "run code"
+      shell: python3 /home/ubuntu/join_cluster.py
+      register: result
+      ignore_errors: yes
+      
+    - name: "get join_cluster.sh"
+      fetch:
+        src: /home/ubuntu/join_cluster.sh
+        dest: ./tmp/join_cluster.sh
+        flat: yes
+        flat_sep: ""
+        mode: 0755

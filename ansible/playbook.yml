@@ -1,0 +1,11 @@
+---
+#site.yml:
+- name: Change hostname
+  hosts: workers
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+    
+- import_playbook: "tasks/change_hostname.yml"
+- import_playbook: "tasks/run-code.yml"
+- import_playbook: "tasks/join_cluster.yml"

@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1 
+kind: Ingress
+metadata:
+  name: phpmyadmin-http-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: phpmyadmin-service
+              servicePort: 80

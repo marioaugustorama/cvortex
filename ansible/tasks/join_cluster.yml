@@ -1,0 +1,22 @@
+---
+- name: Run join cluster script
+  hosts: workers
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  vars:
+    ansible_ssh_private_key_file: "../keys/devops-kubernets-key"
+  tasks:   
+    - name: "copy code"
+      copy:
+        src: ./tmp/join_cluster.sh
+        dest: /home/ubuntu/join_cluster.sh
+        owner: ubuntu
+        group: ubuntu
+        mode: 0755
+
+    - name: "run code"
+      shell: bash /home/ubuntu/join_cluster.sh
+      register: result
+      ignore_errors: yes     
+    

@@ -1,0 +1,1 @@
+sudo kubeadm join 172.31.92.199:6443 --token 8killx.tkb4i2kcotwdkqgl --discovery-token-ca-cert-hash sha256:8e98f2b2d3cd5378c678ddd58f6841a7050ff50588555674b7188856518f6b99
