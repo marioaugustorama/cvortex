@@ -1,0 +1,1 @@
+Diretorio temporário para o script de join dos workers.
