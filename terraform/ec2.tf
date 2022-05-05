@@ -17,8 +17,8 @@ resource "aws_instance" "k8s-master-instance" {
     Name = "k8s-master"
   }
   root_block_device {
-    delete_on_termination = false
-    volume_size           = 80
+    delete_on_termination = true
+    volume_size           = 25
   }
 }
 
@@ -38,7 +38,7 @@ resource "aws_instance" "k8s-workers-instance" {
   }
 
   root_block_device {
-    delete_on_termination = false
-    volume_size           = 80
+    delete_on_termination = true
+    volume_size           = 25
   }
 }
