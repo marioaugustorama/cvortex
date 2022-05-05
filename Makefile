@@ -32,7 +32,7 @@ show: ## Executa o terraform e mostra as alterações
 down: destroy
 .PHONY: destroy
 destroy: ## Executa o terraform e destroi as instâncias
-	@cd terraform && terraform destroy 
+	@cd terraform && terraform destroy -lock=false
 
 .PHONY: join-workers
 join-workers: ## Executa o ansible e adiciona os workers ao cluster
