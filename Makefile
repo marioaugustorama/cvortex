@@ -40,6 +40,15 @@ join-workers: ## Executa o ansible e adiciona os workers ao cluster
 ssh-keygen: ## Gera uma chave ssh
 	@ssh-keygen -t rsa -b 4096 -f keys/devops-kubernets-key -N ""
 
+.PHONY:
+output: ## Gera o output do terraform
+	@cd terraform && terraform output -json > output.json
+
+.PHONY:
+clean: ## Limpa o diretório de trabalho
+	@cd terraform && rm -rf .terraform
+	@rm output.json
+
 .PHONY: help
 
 help: ## This help.
