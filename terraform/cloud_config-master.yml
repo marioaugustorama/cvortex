@@ -70,6 +70,12 @@ runcmd:
   - sudo systemctl daemon-reload
   - sudo systemctl restart docker
 
+  # Workaround for containerd para Ubuntu Focal
+
+  - rm /etc/containerd/config.toml
+  - systemctl restart containerd
+
+  # Inicializa o cluster
   - sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 # Configure user to admin kubernetes
