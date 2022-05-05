@@ -4,11 +4,12 @@ resource "aws_key_pair" "kubernets-key" {
 }
 
 resource "aws_instance" "k8s-master-instance" {
-  ami           = var.aws_amis[var.region]
-  instance_type = var.instance_type[0]
-  key_name      = aws_key_pair.kubernets-key.key_name
-  user_data     = file("cloud_config-master.yml")
-
+  ami               = var.aws_amis[var.region]
+  instance_type     = var.instance_type[0]
+  key_name          = aws_key_pair.kubernets-key.key_name
+  user_data         = file("cloud_config-master.yml")
+  availability_zone = var.availability_zone
+  subnet_id         = var.subnet_id
   vpc_security_group_ids = [
     aws_security_group.kubernetes_rules.id
   ]
@@ -28,6 +29,7 @@ resource "aws_instance" "k8s-workers-instance" {
   instance_type = var.instance_type[0]
   key_name      = aws_key_pair.kubernets-key.key_name
   user_data     = file("cloud_config-worker.yml")
+  subnet_id     = var.subnet_id
 
   vpc_security_group_ids = [
     aws_security_group.kubernetes_rules.id

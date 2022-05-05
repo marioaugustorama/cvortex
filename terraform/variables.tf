@@ -52,3 +52,22 @@ variable "encrypt" {
   type    = bool
   default = true
 }
+
+variable "availability_zone" {
+  type        = string
+  description = "Availability Zone"
+  default     = "us-east-1a"
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID"
+  default     = "vpc-0a7c2ae551540230c"
+}
+
+
+variable "subnet_id" {
+  type        = string
+  description = "Subnet ID"
+  default     = "subnet-07873a7376c366460"
+}
