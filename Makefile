@@ -28,6 +28,8 @@ fmt: ## Formata arquivos de código.
 show: ## Executa o terraform e mostra as alterações
 	@cd terraform && terraform show
 
+.PHONY: down
+down: destroy
 .PHONY: destroy
 destroy: ## Executa o terraform e destroi as instâncias
 	@cd terraform && terraform destroy 

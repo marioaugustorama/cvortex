@@ -8,4 +8,4 @@ terraform/.terraform.lock.hcl
 ansible/inventory
 enviroment.env
 output.json
-ansible/tmp/*
+ansible/tasks/tmp/join_cluster.sh
