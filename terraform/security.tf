@@ -31,7 +31,7 @@ resource "aws_security_group" "kubernetes_rules" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["172.31.80.0/20"]
+    cidr_blocks = ["172.31.16.0/20"]
   }
 
   ingress {
